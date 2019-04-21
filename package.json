@@ -1,0 +1,34 @@
+{
+  "name": "passport-keycloak-oauth2-oidc",
+  "version": "1.0.0",
+  "description": "A Passport.js strategy for authenticating with Keycloak using the OAuth2/OIDC API",
+  "main": "./lib/index.js",
+  "scripts": {
+    "test": "make test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/louie007/passport-keycloak-oauth2-oidc.git"
+  },
+  "keywords": [
+    "passport",
+    "keycloak",
+    "oauth2",
+    "oidc"
+  ],
+  "author": "Louis Bao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/louie007/passport-keycloak-oauth2-oidc/issues"
+  },
+  "homepage": "https://github.com/louie007/passport-keycloak-oauth2-oidc#readme",
+  "dependencies": {
+    "passport-oauth2": "^1.5.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-passport-strategy": "^1.0.1",
+    "make-node": "^0.4.6",
+    "mocha": "^6.1.4"
+  }
+}
