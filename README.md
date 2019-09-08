@@ -88,6 +88,28 @@ app.get('/auth/keycloak/callback',
   });
   ```
 
+### How to get Roles
+
+By default, Keycloak returns Roles information within AccessToken.
+
+If you are wondering to fetch Roles (e.g. realm_access roles, resource_access roles etc) within UserInfo endpoint, please make sure that Keycloak returns those claims .
+
+To add these claims to the UserInfo endpoint, edit the `roles` settings in the Client Scopes:
+
+Clients Scopes -> roles -> settings:
+
+- name: roles
+- Include In Token Scope: enable
+
+and in the `client roles` mappers settings, an example mapping :
+
+- name: client roles
+- mapper type: user client role
+- multivalued: on
+- token claim name: roles.resource_access.${client_id}.roles
+- claim JSON type: string
+- add to userinfo: enabled
+
 ## License
 
 [The MIT License](http://opensource.org/licenses/MIT)
