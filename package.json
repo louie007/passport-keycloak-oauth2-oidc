@@ -1,6 +1,6 @@
 {
   "name": "passport-keycloak-oauth2-oidc",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A Passport.js strategy for authenticating with Keycloak using the OAuth2/OIDC API",
   "main": "./lib/index.js",
   "scripts": {
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/louie007/passport-keycloak-oauth2-oidc#readme",
   "dependencies": {
+    "lodash": "^4.17.20",
     "passport-oauth2": "^1.5.0"
   },
   "devDependencies": {
