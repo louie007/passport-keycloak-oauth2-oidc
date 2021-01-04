@@ -30,6 +30,6 @@
     "chai": "^4.2.0",
     "chai-passport-strategy": "^1.0.1",
     "make-node": "^0.4.6",
-    "mocha": "^6.1.4"
+    "mocha": "^6.2.3"
   }
 }
