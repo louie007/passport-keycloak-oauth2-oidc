@@ -46,7 +46,8 @@ Options:
 - `clientSecret`     If your Keycloak client's `Access Type` is set to `confidential` this is required (`publicClient` set to `false`).
 - `callbackURL`      URL to which KeyCloak will redirect the user after granting authentication.
 - `sslRequired`      requires SSL for (all|external|none) requests (set to `external` by default).
-
+-  scope             openid email profile offline_access roles
+  
 Examples:
 
 ```javascript
@@ -58,7 +59,9 @@ Examples:
       clientSecret: '6ee0f303-faef-42d7-ba8e-00cdec755c42',
       sslRequired: 'external',
       authServerURL: 'https://keycloak.example.com/auth',
-      callbackURL: 'https://www.example.com/keycloak/callback'
+      callbackURL: 'https://www.example.com/keycloak/callback',
+      scope: "openid email profile offline_access roles"
+
     },
     function(accessToken, refreshToken, profile, done) {
       User.findOrCreate(..., function err, user) {
