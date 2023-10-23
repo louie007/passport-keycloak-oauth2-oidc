@@ -46,6 +46,7 @@ Options:
 - `clientSecret`     If your Keycloak client's `Access Type` is set to `confidential` this is required (`publicClient` set to `false`).
 - `callbackURL`      URL to which KeyCloak will redirect the user after granting authentication.
 - `sslRequired`      requires SSL for (all|external|none) requests (set to `external` by default).
+- `scope`            Optional. Provides the scope you require to be included in your access token. (The default value varies based on the strategy caller.)
 
 Examples:
 
@@ -57,6 +58,7 @@ Examples:
       publicClient: 'false',
       clientSecret: '6ee0f303-faef-42d7-ba8e-00cdec755c42',
       sslRequired: 'external',
+      scope: "openid profile email",
       authServerURL: 'https://keycloak.example.com/auth',
       callbackURL: 'https://www.example.com/keycloak/callback'
     },
@@ -109,6 +111,10 @@ and in the `client roles` mappers settings, an example mapping :
 - token claim name: roles.resource_access.${client_id}.roles
 - claim JSON type: string
 - add to userinfo: enabled
+
+# InternalOAuthError: Failed to fetch user profile
+
+If you encounter the InternalOAuthError error "Failed to fetch user profile", please first check if the access token you requested includes the 'openid' scope. This is because Keycloak requires the 'openid' scope to query user_profile after this [Pull](https://github.com/keycloak/keycloak/pull/14237). Your strategy caller may use old code that did not include this scope.
 
 ## License
 
